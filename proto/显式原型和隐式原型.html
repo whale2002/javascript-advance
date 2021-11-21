@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 构造函数
+    let Fn = function() {
+
+    }
+    console.log(Fn.prototype.constructor === Fn)
+
+    console.log(Fn.prototype);
+
+    let fn = new Fn()
+
+    console.log(fn.__proto__ === Fn.prototype); //实例对象的隐式原型等于构造函数的原型对象
+    
+  </script>
+</body>
+</html>
