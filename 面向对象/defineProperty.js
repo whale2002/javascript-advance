@@ -17,3 +17,4 @@ Object.defineProperty(obj, 'height', {
 
 console.log(obj)   //被隐藏了
 console.log(obj.height)
+console.log(obj.hasOwnProperty('height'))
