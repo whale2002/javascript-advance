@@ -52,7 +52,7 @@ function getDepend(target, key) {
 
 function reactive(obj) {
   Object.keys(obj).forEach((key) => {
-    let value = obj[key] // 为什么要这么写呢
+    let value = obj[key]
     Object.defineProperty(obj, key, {
       get: function () {
         const depend = getDepend(obj, key)
