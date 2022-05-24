@@ -4,8 +4,8 @@ let res1 = [...new Set(arr)]
 let res2 = Array.from(new Set(arr))
 
 let res3 = []
-arr.forEach(item => {
-  if(res3.indexOf(item) === -1) {
+arr.forEach((item) => {
+  if (res3.indexOf(item) === -1) {
     res3.push(item)
   }
 })

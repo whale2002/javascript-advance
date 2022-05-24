@@ -1,3 +1,4 @@
+// key: 发布订阅模式
 class EventBus {
   constructor() {
     this.eventBus = {}
@@ -35,6 +36,16 @@ class EventBus {
       handler.eventCallback.apply(handler.thisArg, payload)
     })
   }
+
+  once(eventName, ...payload) {
+    const handlers = this.eventBus[eventName]
+    if (!handlers) return
+    handlers.forEach((handler) => {
+      handler.eventCallback.apply(handler.thisArg, payload)
+    })
+
+    delete this.eventBus[eventName]
+  }
 }
 
 const eventBus = new EventBus()
@@ -52,9 +63,11 @@ const handleCallback = function (payload) {
 }
 eventBus.on('abc', handleCallback, { name: 'why' })
 
-// utils.js
+// 触发
 eventBus.emit('abc', 123)
 
 // 移除监听
 eventBus.off('abc', handleCallback)
+
+// 再次触发
 eventBus.emit('abc', 123)
